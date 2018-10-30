@@ -11,8 +11,9 @@ function clicked(val) {
             console.log(res)
             populate();
         });
-
+    
     populate();
+    window.location.reload(true);
 }
 
 document.querySelector('#editMe').addEventListener('click', event => {
@@ -23,10 +24,13 @@ document.querySelector('#editMe').addEventListener('click', event => {
         body: JSON.stringify({
             title: document.querySelector('#name').value,
             author: document.querySelector('#size').value,
+            pages: document.querySelector('#pages').value
         })
     }).then(res => {
+        window.location.reload(true);
         populate();
     })
+    window.location.reload(true);
 
 })
 
@@ -39,11 +43,14 @@ document.querySelector('#addMe').addEventListener('click', event => {
         body: JSON.stringify({
             title: document.querySelector('#name').value,
             author: document.querySelector('#size').value,
+            pages: document.querySelector('#pages').value
         })
     }).then(r => {
         document.querySelector('#name').value = ''
         document.querySelector('#size').value = ''
+        document.querySelector('#pages').value = ''
         populate();
+        window.location.reload(true);
     }).catch(e => console.error(e))
     populate();
 })
@@ -60,6 +67,7 @@ function populate() {
             <div style="display:inline-block; margin:20px;">
                 Title: ${data[i].title} <br>
                 Author: ${data[i].author} <br>
+                Pages: ${data[i].pages} <br>
                 <button onclick="clicked('${data[i].title}')" class='purge' id=${data[i].title}>Purge</button>
             </div>
             `)

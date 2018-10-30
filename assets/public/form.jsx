@@ -15,6 +15,11 @@ const form = () =>
                         <input placeholder="Dr. Seuss" id="size" type="text" className="validate" />
                         <label htmlFor="size">Author</label>
                     </div>
+
+                    <div className="input-field col s12">
+                        <input placeholder="9000" id="pages" type="text" className="validate" />
+                        <label htmlFor="pages">Pages</label>
+                    </div>
                 </div>
                 <center>
 
